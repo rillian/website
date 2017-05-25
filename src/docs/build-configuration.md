@@ -190,7 +190,8 @@ environment:
 
 "Secure" variables means you can safely put them into `appveyor.yml` that is visible to others.
 Other than that they are just regular environment variables in a build session that could be easily
-displayed in a build log by simple `Get-ChildItem env:`.
+displayed in a build log by simple `Get-ChildItem env:`. If the value cannot be decrypted the variable
+will be null instead.
 
 However, secure variables are *not* decoded during Pull Request builds which prevents someone
 from submitting PR with malicious build script displaying those variables. In more controlled
